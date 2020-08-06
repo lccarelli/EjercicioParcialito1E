@@ -13,17 +13,14 @@ Considerar que las categorías pueden ser: almacen, lácteos, limpieza o bebidas
 function mostrar() {
 
 	const SI = "si";
-
 	const LACTEOS = "lacteos";
 	const BEBIDAS = "bebidas";
 	const LIMPIEZA = "limpieza";
 	const ALMACEN = "almacen";
-
 	let articulo;
 	let categoria;
 	let precio;
 	let bandera = 0;
-
 	let articuloMax;
 	let precioMax;
 	let artLacteo;
@@ -62,15 +59,16 @@ function mostrar() {
 					console.log("cantidadBebidas-> ", bebida);
 					break;
 			}
+		}
 
-			continuar = prompt("Quiere ingresar otro articulo?, continuar si");
+		continuar = prompt("Quiere ingresar otro articulo?, continuar si");
 
-		} while (continuar === SI);
+	} while (continuar === SI);
 
-		document.write(
-			"Articulo con mayor precio -> ", articuloMax, "</b>",
-			"Articulo categoria lacteo -> ", artLacteo, "precioLacteo -> ", precioLacteo, "</b>",
-			"Cantidad de articulos de bebidas -> ", bebida
-		);
+	document.write(
+		"Articulo con mayor precio -> ", articuloMax, "</b>",
+		"Articulo categoria lacteo -> ", artLacteo, "precioLacteo -> ", precioLacteo, "</b>",
+		"Cantidad de articulos de bebidas -> ", bebida
+	);
 
-	}
+}
