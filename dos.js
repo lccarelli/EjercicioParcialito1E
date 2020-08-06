@@ -41,6 +41,7 @@ function mostrar() {
 
 		if (precio >= precioMax || bandera == 0) {
 
+
 			precioMax = precio;
 			articuloMax = articulo;
 
@@ -49,6 +50,7 @@ function mostrar() {
 			switch (categoria) {
 				case LACTEOS:
 					if (precio > precioMax) {
+
 						artLacteo = articulo;
 						precioLacteo = precio;
 						console.log("lacteo->", lacteo);
@@ -59,6 +61,7 @@ function mostrar() {
 					console.log("cantidadBebidas-> ", bebida);
 					break;
 			}
+
 		}
 
 		continuar = prompt("Quiere ingresar otro articulo?, continuar si");
@@ -72,3 +75,4 @@ function mostrar() {
 	);
 
 }
+
