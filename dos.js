@@ -12,23 +12,49 @@ Considerar que las categorías pueden ser: almacen, lácteos, limpieza o bebidas
 
 function mostrar() {
 	const SI = "si";
-	let precioAnterior;
-	let catAnterior;
+	const LACTEOS = "Lacteos";
+	const BEBIDAS = "Bebidas";
+	let precio;
+	let categoria;
+	let articulo;
+	let lacteoArticulo;
+	let cantBebidas;
+	let continuar;
 
 	do {
 
-		let articulo = prompt("Nombre articulo");
-		let categoría = prompt("Nombre Categoria");
-		let precio = parseFloat(prompt("Nombre Precio"));
+		let nArticulo = prompt("Nombre articulo");
+		let nCategoría = prompt("Nombre Categoria");
+		let nPrecio = parseFloat(prompt("Nombre Precio"));
 
 
-		if (precio > anterior) {
+		if (nPrecio > 0 && nPrecio < 1000) {
 
-			anterior = precio;
+			if (nPrecio > precio) {
 
+				precio = nPrecio;
+				categoria = nCategoría;
+				articulo = nArticulo;
+
+				if (categoria === LACTEOS && nPrecio > nprecio) {
+					lacteoArticulo = nArticulo;
+				}
+				if (categoria === BEBIDAS) {
+					cantBebidas++;
+				}
+				continuar = prompt("Quiere ingresar otro articulo?, continuar si");
+			}
+		} else {
+			alert("el precio se encuentra fuera del scope");
 		}
 
-		let continuar = prompt("Quiere ingresar otro articulo?, continuar si");
+
 	} while (continuar === SI);
-	alert("Hola Mundo");
+
+	document.write(
+		"Articulo con mayor precio -> ", articulo, "</b>",
+		"Nombre categoria lacteo -> ", lacteoArticulo, "</b>",
+		"Cantidad de articulos de bebidas -> ", cantBebidas
+	)
+
 }
