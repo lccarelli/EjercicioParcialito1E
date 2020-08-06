@@ -13,10 +13,12 @@ Considerar que las categorías pueden ser: almacen, lácteos, limpieza o bebidas
 function mostrar() {
 
 	const SI = "si";
+
 	const LACTEOS = "lacteos";
 	const BEBIDAS = "bebidas";
 	const LIMPIEZA = "limpieza";
 	const ALMACEN = "almacen";
+
 	let articulo;
 	let categoria;
 	let precio;
@@ -38,10 +40,13 @@ function mostrar() {
 		} while (!(categoria == LACTEOS || categoria == BEBIDAS || categoria == LIMPIEZA || categoria == ALMACEN) && (precio < 0 || precio < 1000));
 
 
+		console.log("entre a mayor");
+
 		if (precio >= precioMax || bandera == 0) {
 
 			precioMax = precio;
 			articuloMax = articulo;
+
 			console.log("precioMax-> ", precioMax, "nombre->", articuloMax);
 
 			switch (categoria) {
@@ -57,16 +62,15 @@ function mostrar() {
 					console.log("cantidadBebidas-> ", bebida);
 					break;
 			}
-		}
 
-		continuar = prompt("Quiere ingresar otro articulo?, continuar si");
+			continuar = prompt("Quiere ingresar otro articulo?, continuar si");
 
-	} while (continuar === SI);
+		} while (continuar === SI);
 
-	document.write(
-		"Articulo con mayor precio -> ", articuloMax, "</b>",
-		"Articulo categoria lacteo -> ", artLacteo, "precioLacteo -> ", precioLacteo, "</b>",
-		"Cantidad de articulos de bebidas -> ", bebida
-	);
+		document.write(
+			"Articulo con mayor precio -> ", articuloMax, "</b>",
+			"Articulo categoria lacteo -> ", artLacteo, "precioLacteo -> ", precioLacteo, "</b>",
+			"Cantidad de articulos de bebidas -> ", bebida
+		);
 
-}
+	}
