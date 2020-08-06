@@ -11,50 +11,69 @@ Considerar que las categorías pueden ser: almacen, lácteos, limpieza o bebidas
 */
 
 function mostrar() {
+
 	const SI = "si";
 	const LACTEOS = "Lacteos";
 	const BEBIDAS = "Bebidas";
-	let precio;
-	let categoria;
 	let articulo;
-	let lacteoArticulo;
-	let cantBebidas;
+	let categoria;
+	let precio;
+	let bandera = 0;
+
+	let articuloMax;
+	let precioMax;
+	let lacteo;
+	let bebida = 0;
 	let continuar;
 
 	do {
 
-		let nArticulo = prompt("Nombre articulo");
-		let nCategoría = prompt("Nombre Categoria");
-		let nPrecio = parseFloat(prompt("Nombre Precio"));
+		articulo = prompt("Nombre articulo");
+		categoria = prompt("Nombre Categoria");
+		precio = parseFloat(prompt("Nombre Precio"));
 
+		if (precio < 0 || precio > 1000) {
+			bandera = 1;
+		}
 
-		if (nPrecio > 0 && nPrecio < 1000) {
+		if (precio >= precioMax || bandera == 0) {
 
-			if (nPrecio > precio) {
+			console.log("entre!");
+			console.log(precio, precioMax);
 
-				precio = nPrecio;
-				categoria = nCategoría;
-				articulo = nArticulo;
+			console.log("entre a mayor");
 
-				if (categoria === LACTEOS && nPrecio > nprecio) {
-					lacteoArticulo = nArticulo;
-				}
-				if (categoria === BEBIDAS) {
-					cantBebidas++;
-				}
-				continuar = prompt("Quiere ingresar otro articulo?, continuar si");
+			precioMax = precio;
+			articuloMax = articulo;
+
+			console.log("precioMax-> ", precioMax, "nombre->", articuloMax);
+
+			switch (categoria) {
+				case LACTEOS:
+					if (precio > precioMax) {
+						lacteo = articulo;
+						console.log("lacteo->", lacteo);
+					}
+					break;
+				case BEBIDAS:
+					bebida++;
+					console.log("cantidadBebidas-> ", bebida);
+					break;
 			}
+
 		} else {
+
 			alert("el precio se encuentra fuera del scope");
 		}
 
+		continuar = prompt("Quiere ingresar otro articulo?, continuar si");
 
 	} while (continuar === SI);
 
 	document.write(
-		"Articulo con mayor precio -> ", articulo, "</b>",
-		"Nombre categoria lacteo -> ", lacteoArticulo, "</b>",
-		"Cantidad de articulos de bebidas -> ", cantBebidas
-	)
+		"Articulo con mayor precio -> ", articuloMax, "</b>",
+		"Nombre categoria lacteo -> ", lacteo, "</b>",
+		"Cantidad de articulos de bebidas -> ", bebida
+	);
 
 }
