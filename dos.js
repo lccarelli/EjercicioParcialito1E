@@ -13,8 +13,10 @@ Considerar que las categorías pueden ser: almacen, lácteos, limpieza o bebidas
 function mostrar() {
 
 	const SI = "si";
-	const LACTEOS = "Lacteos";
-	const BEBIDAS = "Bebidas";
+	const LACTEOS = "lacteos";
+	const BEBIDAS = "bebidas";
+	const LIMPIEZA = "limpieza";
+	const ALMACEN = "almacen";
 	let articulo;
 	let categoria;
 	let precio;
@@ -22,36 +24,31 @@ function mostrar() {
 
 	let articuloMax;
 	let precioMax;
-	let lacteo;
+	let artLacteo;
 	let bebida = 0;
 	let continuar;
 
 	do {
 
-		articulo = prompt("Nombre articulo");
-		categoria = prompt("Nombre Categoria");
-		precio = parseFloat(prompt("Nombre Precio"));
+		do {
+			articulo = prompt("Nombre articulo");
+			categoria = prompt("Nombre Categoria");
+			precio = parseFloat(prompt("Nombre Precio"));
 
-		if (precio < 0 || precio > 1000) {
-			bandera = 1;
-		}
+		} while (!(categoria == LACTEOS || categoria == BEBIDAS || categoria == LIMPIEZA || categoria == ALMACEN) && (precio < 0 || precio < 1000));
+
 
 		if (precio >= precioMax || bandera == 0) {
 
-			console.log("entre!");
-			console.log(precio, precioMax);
-
-			console.log("entre a mayor");
-
 			precioMax = precio;
 			articuloMax = articulo;
-
 			console.log("precioMax-> ", precioMax, "nombre->", articuloMax);
 
 			switch (categoria) {
 				case LACTEOS:
 					if (precio > precioMax) {
-						lacteo = articulo;
+						artLacteo = articulo;
+						precioLacteo = precio;
 						console.log("lacteo->", lacteo);
 					}
 					break;
@@ -60,10 +57,6 @@ function mostrar() {
 					console.log("cantidadBebidas-> ", bebida);
 					break;
 			}
-
-		} else {
-
-			alert("el precio se encuentra fuera del scope");
 		}
 
 		continuar = prompt("Quiere ingresar otro articulo?, continuar si");
@@ -72,7 +65,7 @@ function mostrar() {
 
 	document.write(
 		"Articulo con mayor precio -> ", articuloMax, "</b>",
-		"Nombre categoria lacteo -> ", lacteo, "</b>",
+		"Articulo categoria lacteo -> ", artLacteo, "precioLacteo -> ", precioLacteo, "</b>",
 		"Cantidad de articulos de bebidas -> ", bebida
 	);
 
