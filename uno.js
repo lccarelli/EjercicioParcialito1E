@@ -42,17 +42,13 @@ function mostrar() {
 			alert("Permiso no otorgado");
 		} else if (sintomas === TOS && temCorp <= 37) {
 			alert("Permiso otorgado. Por favor no se olvide de toser sobre su codo.");
-		} else {
-			switch (sintomas) {
-				case PERDIDA_OLFATO:
-				case PERDIDA_GUSTO:
-					alert("Permiso otorgado");
-					break;
-
-				case DIFICULTA_RESPIRATORIA:
-					alert("Permiso no otorgado");
-					break;
-			}
+		} else if (sintomas == PERDIDA_GUSTO || sintomas == PERDIDA_OLFATO) {
+			alert("Permiso otorgado");
+		} else if (sintomas == DIFICULTA_RESPIRATORIA) {
+			alert("Permiso no otorgado");
+		}
+		else {
+			alert("Permiso otorgado");
 		}
 	}
 }
